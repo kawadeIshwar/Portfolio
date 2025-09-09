@@ -15,10 +15,10 @@ export default function Navbar({ dark, setDark }) {
   }, [])
 
   const LinkItem = ({ href, children }) => (
-    <a href={href} className={`px-4 py-2 rounded-xl transition-all duration-200 ${
+    <a href={href} className={`group px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative z-10 ${
       dark 
-        ? 'hover:bg-white/10 text-white hover:text-secondary-300' 
-        : 'hover:bg-gray-100 text-gray-700 hover:text-secondary-600'
+        ? 'hover:bg-gradient-to-r hover:from-secondary-500/20 hover:to-accent-500/20 text-white hover:text-secondary-300 hover:shadow-secondary-500/25' 
+        : 'hover:bg-gradient-to-r hover:from-secondary-100 hover:to-accent-100 text-gray-700 hover:text-secondary-600 hover:shadow-secondary-500/25'
     }`}>
       {children}
     </a>
@@ -54,12 +54,12 @@ export default function Navbar({ dark, setDark }) {
           <button
             aria-label="Toggle theme"
             onClick={() => setDark(v => !v)}
-            className={`rounded-2xl border backdrop-blur-xl transition-all duration-300 ${
+            className={`group rounded-2xl border backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer relative z-10 ${
               scrolled ? 'p-2' : 'p-3'
             } ${
               dark 
-                ? 'border-white/20 bg-white/10 hover:bg-white/20 hover:shadow-glow' 
-                : 'border-gray-200/60 bg-white/80 hover:bg-gray-100 hover:shadow-lg'
+                ? 'border-white/20 bg-white/10 hover:bg-gradient-to-r hover:from-yellow-500/20 hover:to-orange-500/20 hover:shadow-yellow-500/25' 
+                : 'border-gray-200/60 bg-white/80 hover:bg-gradient-to-r hover:from-yellow-100 hover:to-orange-100 hover:shadow-yellow-500/25'
             }`}
           >
             {dark ? <Sun size={scrolled ? 16 : 18} className="text-white"/> : <Moon size={scrolled ? 16 : 18} className="text-gray-700"/>}
@@ -67,12 +67,12 @@ export default function Navbar({ dark, setDark }) {
         </nav>
 
         <button 
-          className={`md:hidden rounded-2xl border backdrop-blur-xl transition-all duration-300 ${
+          className={`group md:hidden rounded-2xl border backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer relative z-10 ${
             scrolled ? 'p-2' : 'p-3'
           } ${
             dark 
-              ? 'border-white/20 bg-white/10 hover:bg-white/20' 
-              : 'border-gray-200/60 bg-white/80 hover:bg-gray-100'
+              ? 'border-white/20 bg-white/10 hover:bg-gradient-to-r hover:from-gray-500/20 hover:to-slate-500/20 hover:shadow-gray-500/25' 
+              : 'border-gray-200/60 bg-white/80 hover:bg-gradient-to-r hover:from-gray-100 hover:to-slate-100 hover:shadow-gray-500/25'
           }`}
           onClick={() => setOpen(v => !v)}
         >
@@ -85,22 +85,28 @@ export default function Navbar({ dark, setDark }) {
           <div className={`flex flex-col gap-2 ${
             dark ? 'glass-card' : 'glass-card-light'
           }`}>
-            <a href="#projects" onClick={()=>setOpen(false)} className={`py-3 px-4 rounded-xl transition-colors duration-200 ${
-              dark ? 'hover:bg-white/10 text-white' : 'hover:bg-gray-100 text-gray-700'
+            <a href="#projects" onClick={()=>setOpen(false)} className={`group py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative z-10 ${
+              dark 
+                ? 'hover:bg-gradient-to-r hover:from-secondary-500/20 hover:to-accent-500/20 text-white hover:text-secondary-300 hover:shadow-secondary-500/25' 
+                : 'hover:bg-gradient-to-r hover:from-secondary-100 hover:to-accent-100 text-gray-700 hover:text-secondary-600 hover:shadow-secondary-500/25'
             }`}>Projects</a>
-            <a href="#skills" onClick={()=>setOpen(false)} className={`py-3 px-4 rounded-xl transition-colors duration-200 ${
-              dark ? 'hover:bg-white/10 text-white' : 'hover:bg-gray-100 text-gray-700'
+            <a href="#skills" onClick={()=>setOpen(false)} className={`group py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative z-10 ${
+              dark 
+                ? 'hover:bg-gradient-to-r hover:from-secondary-500/20 hover:to-accent-500/20 text-white hover:text-secondary-300 hover:shadow-secondary-500/25' 
+                : 'hover:bg-gradient-to-r hover:from-secondary-100 hover:to-accent-100 text-gray-700 hover:text-secondary-600 hover:shadow-secondary-500/25'
             }`}>Skills</a>
-            <a href="#contact" onClick={()=>setOpen(false)} className={`py-3 px-4 rounded-xl transition-colors duration-200 ${
-              dark ? 'hover:bg-white/10 text-white' : 'hover:bg-gray-100 text-gray-700'
+            <a href="#contact" onClick={()=>setOpen(false)} className={`group py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative z-10 ${
+              dark 
+                ? 'hover:bg-gradient-to-r hover:from-secondary-500/20 hover:to-accent-500/20 text-white hover:text-secondary-300 hover:shadow-secondary-500/25' 
+                : 'hover:bg-gradient-to-r hover:from-secondary-100 hover:to-accent-100 text-gray-700 hover:text-secondary-600 hover:shadow-secondary-500/25'
             }`}>Contact</a>
             <button
               aria-label="Toggle theme"
               onClick={() => { setDark(v=>!v); setOpen(false)}}
-              className={`mt-2 p-3 rounded-xl border backdrop-blur-xl transition-all duration-200 ${
+              className={`group mt-2 p-3 rounded-xl border backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative z-10 ${
                 dark 
-                  ? 'border-white/20 bg-white/10 hover:bg-white/20 text-white' 
-                  : 'border-gray-200/60 bg-white/80 hover:bg-gray-100 text-gray-700'
+                  ? 'border-white/20 bg-white/10 hover:bg-gradient-to-r hover:from-yellow-500/20 hover:to-orange-500/20 hover:shadow-yellow-500/25 text-white' 
+                  : 'border-gray-200/60 bg-white/80 hover:bg-gradient-to-r hover:from-yellow-100 hover:to-orange-100 hover:shadow-yellow-500/25 text-gray-700'
               }`}
             >
               {dark ? 'Light Mode' : 'Dark Mode'}
