@@ -9,6 +9,9 @@ const skills = [
   { name: 'Express', level: 'Intermediate', percentage: 70 },
   { name: 'MongoDB', level: 'Intermediate', percentage: 72 },
   { name: 'Tailwind', level: 'Expert', percentage: 92 },
+  { name: 'REST APIs', level: 'Intermediate', percentage: 89 },
+  { name: 'VScode', level: 'Expert', percentage: 90 },
+  { name: 'BootStrap', level: 'Intermediate', percentage: 85 },
   { name: 'Git', level: 'Advanced', percentage: 80 }
 ]
 

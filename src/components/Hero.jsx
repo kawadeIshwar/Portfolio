@@ -9,7 +9,7 @@ export default function Hero({ dark }) {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full max-w-3xl lg:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-4xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-12">
           {/* Hero Text */}
           <div className="space-y-8">
@@ -24,8 +24,8 @@ export default function Hero({ dark }) {
             >
               Hi, I'm <span className="gradient-text">Ishwar</span>.
               <div className="mt-4 flex justify-center">
-                <span className={`inline-block whitespace-nowrap ${dark ? 'text-white/90' : 'text-gray-800'}`}>
-                  I build modern web apps.
+                <span className={`typing-mern`}>
+                  MERN Stack Developer.
                 </span>
               </div>
             </motion.h1>
@@ -38,7 +38,7 @@ export default function Hero({ dark }) {
                 dark ? 'text-white/80' : 'text-gray-600'
               }`}
             >
-              Fresher & MERN developer. I love clean UIs, smooth animations, and fast backends. 
+              Transforming Ideas into Web Experiences. Clean UIs, smooth animations, and high-performance backends.
               <br className="hidden sm:block" />
               <span className="gradient-text-static">Creating digital experiences that matter.</span>
             </motion.p>

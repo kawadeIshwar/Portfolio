@@ -41,6 +41,15 @@
   animation: typewriter 3s steps(40) 1 both, blink 1s step-end infinite, color-cycle 16s linear infinite;
 }
 
+.typing-mern {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid currentColor;
+  display: inline-block;
+  width: 0;
+  animation: typewriter-mern 3s steps(21) 1 both, blink 1s step-end infinite, color-cycle 16s linear infinite;
+}
+
 .gradient-text {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
   background-size: 400% 400%;
@@ -64,6 +73,11 @@
 @keyframes typewriter {
   from { width: 0; }
   to { width: var(--typewriter-ch, 28ch); }
+}
+
+@keyframes typewriter-mern {
+  from { width: 0; }
+  to { width: 21ch; }
 }
 
 /* Blinking caret on the right border */
@@ -164,6 +178,63 @@
 
 .progress-fill-light {
   @apply h-full bg-gradient-to-r from-secondary-500 to-accent-500 rounded-full transition-all duration-1000 ease-out;
+}
+
+/* Subtle animated underline for engaging text */
+.engage-underline {
+  position: relative;
+}
+
+.engage-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.6), rgba(99, 102, 241, 0.6), rgba(16, 185, 129, 0.6), transparent);
+  background-size: 200% 100%;
+  animation: underline-sweep 2.8s linear infinite;
+  border-radius: 9999px;
+}
+
+/* Soft shimmer through text */
+.shimmer-text {
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.0) 0%,
+    rgba(168,85,247,0.35) 25%,
+    rgba(99,102,241,0.45) 50%,
+    rgba(16,185,129,0.35) 75%,
+    rgba(255,255,255,0.0) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 3.5s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Keep bright text color with subtle animated glow */
+.bright-shimmer {
+  animation: text-glow 3s ease-in-out infinite;
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 0 0 rgba(168, 85, 247, 0), 0 0 0 rgba(99, 102, 241, 0);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(168, 85, 247, 0.35), 0 0 18px rgba(99, 102, 241, 0.25);
+  }
+}
+
+@keyframes underline-sweep {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 /* Background patterns */

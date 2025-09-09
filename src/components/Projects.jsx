@@ -3,30 +3,30 @@ import { motion } from 'framer-motion'
 const cards = [
   { 
     title: 'StudyHub', 
-    desc: 'Notes sharing app for students with uploads and previews. Built with modern MERN stack for seamless collaboration.', 
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop&crop=center',
+    desc: 'Notes sharing platform for students with uploads and previews. Built with modern MERN stack for seamless collaboration.', 
+    image: 'https://plus.unsplash.com/premium_photo-1681681061635-a64755f982f1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     liveUrl: 'https://studyhub4all.netlify.app/', 
     githubUrl: 'https://github.com/kawadeIshwar/Study-Hub.git',
     chip: 'MERN',
-    features: ['File Upload', 'Notes Explore', 'cloud storage', 'User Authentication', 'responsive design']
+    features: ['File Upload', 'Notes Explore', 'Cloud storage', 'User Authentication', 'Responsive design']
   },
   { 
     title: 'Rank-Rush', 
-    desc: 'Restaurant ordering assistant using NLP. Intelligent chatbot that understands natural language orders ', 
-    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&h=300&fit=crop&crop=center',
+    desc: 'A real-time leaderboard built with MERN, where users earn random points, climb ranks, and track their claim history. ', 
+    image: 'https://images.unsplash.com/photo-1533237264985-ee62f6d342bb?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     liveUrl: 'https://rank-rush1.netlify.app/', 
     githubUrl: 'https://github.com/kawadeIshwar/Rank-Rush.git',
-    chip: 'AI / Chat',
-    features: ['NLP Processing', 'Voice Commands', 'Menu Integration', 'Order Tracking']
+    chip: 'MERN',
+    features: ['Leaderboard', 'Claim Points', 'Ranking System', 'Points Tracking', 'Responsive Design']
   },
   { 
-    title: 'RideShare Mini', 
-    desc: 'Intercity ride matching prototype. Connect drivers and passengers for efficient long-distance travel with real-time tracking.', 
-    image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=500&h=300&fit=crop&crop=center',
-    liveUrl: 'https://rideshare-mini.netlify.app', 
-    githubUrl: 'https://github.com/ishwar/rideshare-mini',
-    chip: 'Fullstack',
-    features: ['Real-time GPS', 'Payment Integration', 'Rating System', 'Route Optimization']
+    title: 'TuneWave - Spotify Clone', 
+    desc: 'A front-end Spotify clone built using HTML & CSS, replicating the sleek UI and design of the original app. ',
+    image: 'https://images.unsplash.com/photo-1611339555312-e607c8352fd7?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    liveUrl: 'https://tunewave-spotify-clone.netlify.app/', 
+    githubUrl: 'https://github.com/kawadeIshwar/Spotify-Clone.git',
+    chip: 'HTML / CSS',
+    features: ['Modern UI', 'Responsive Design', 'Player Bar', 'Playlist Section']
   },
 ]
 
