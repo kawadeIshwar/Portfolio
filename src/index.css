@@ -16,6 +16,16 @@
   scroll-behavior: smooth; 
 }
 
+/* Show back-to-top button after scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html:has(body) {
+    --show-top: none;
+  }
+  body.scrolled {
+    --show-top: block;
+  }
+}
+
 ::selection { 
   background: linear-gradient(135deg, #a855f7, #ec4899); 
   color: white; 
@@ -242,11 +252,23 @@
   background: linear-gradient(45deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
   background-size: 400% 400%;
   animation: gradient-x 8s ease infinite;
+  /* Improve paint stability on scroll */
+  will-change: background-position, transform;
+  transform: translateZ(0);
 }
 
 .bg-grid-modern {
   background-image: radial-gradient(circle at 1px 1px, rgba(168, 85, 247, 0.15) 1px, transparent 0);
   background-size: 24px 24px;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Utility: create a compositor layer and avoid subpixel flicker */
+.gpu {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Scrollbar styling */

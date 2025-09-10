@@ -53,13 +53,13 @@ export default function Skills({ dark }) {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 gpu"
       >
         {skills.map((skill, index) => (
           <motion.div
             key={skill.name}
             variants={itemForIndex(index)}
-            className={`group relative overflow-hidden p-6 ${
+            className={`group relative overflow-hidden p-6 gpu ${
               dark ? 'skill-badge' : 'skill-badge-light'
             }`}
           >

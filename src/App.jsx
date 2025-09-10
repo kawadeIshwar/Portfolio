@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
@@ -9,6 +10,9 @@ import Footer from './components/Footer'
 export default function App() {
   // Dark mode - default to dark, check localStorage
   const [dark, setDark] = useState(true)
+  // Scroll progress bar
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, mass: 0.3 })
   useEffect(() => {
     const stored = localStorage.getItem('theme')
     const initial = stored ? stored === 'dark' : true // Default to dark mode
@@ -25,6 +29,11 @@ export default function App() {
         ? 'bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900' 
         : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
     }`}>
+      {/* Scroll progress bar */}
+      <motion.div
+        style={{ scaleX }}
+        className={`fixed top-0 left-0 right-0 h-1 origin-left z-[60] ${dark ? 'bg-gradient-to-r from-secondary-500 to-accent-500' : 'bg-gradient-to-r from-secondary-500 to-accent-500'}`}
+      />
       {/* Animated background elements */}
       <div className={`absolute inset-0 bg-grid-modern ${dark ? 'opacity-30' : 'opacity-20'}`}></div>
       <div className={`absolute top-0 left-0 w-full h-full bg-mesh ${dark ? 'opacity-10' : 'opacity-5'}`}></div>
@@ -42,6 +51,18 @@ export default function App() {
         <Contact dark={dark} />
       </main>
       <Footer dark={dark} />
+
+      {/* Back to Top Button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className={`fixed bottom-6 right-6 z-50 rounded-full shadow-lg transition-all duration-300 p-3 ${
+          dark ? 'bg-white/10 border border-white/20 text-white hover:bg-white/20' : 'bg-white border border-gray-200 text-gray-800 hover:bg-gray-100'
+        }`}
+        style={{ display: 'var(--show-top, none)' }}
+        aria-label="Back to top"
+      >
+        ↑
+      </button>
     </div>
   )
 }

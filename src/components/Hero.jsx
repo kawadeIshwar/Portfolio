@@ -4,12 +4,12 @@ export default function Hero({ dark }) {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center py-24 sm:py-32">
       {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]">
-        <div className={`absolute -top-20 left-1/2 -translate-x-1/2 w-[90vw] h-[90vw] max-w-5xl blur-3xl rounded-full bg-gradient-to-r from-secondary-500/20 via-accent-500/20 to-primary-500/20 ${dark ? '' : 'opacity-60'}`} />
+      <div className="absolute inset-0 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)] gpu">
+        <div className={`absolute -top-20 left-1/2 -translate-x-1/2 w-[90vw] h-[90vw] max-w-5xl blur-3xl rounded-full bg-gradient-to-r from-secondary-500/20 via-accent-500/20 to-primary-500/20 ${dark ? '' : 'opacity-60'} gpu`} />
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full max-w-4xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-4xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 gpu">
         <div className="text-center space-y-12">
           {/* Hero Text */}
           <div className="space-y-8">

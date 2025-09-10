@@ -1,24 +1,50 @@
 import { Moon, Sun, Menu } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Navbar({ dark, setDark }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [active, setActive] = useState('home')
+  const observerRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => {
       setOpen(false)
       setScrolled(window.scrollY > 50)
+      // Toggle body class for back-to-top visibility
+      if (window.scrollY > 400) {
+        document.body.classList.add('scrolled')
+      } else {
+        document.body.classList.remove('scrolled')
+      }
     }
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Active section spy
+  useEffect(() => {
+    const sections = ['home', 'projects', 'skills', 'contact']
+    const options = { root: null, rootMargin: '0px', threshold: 0.5 }
+    const handler = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive(entry.target.id)
+      })
+    }
+    const obs = new IntersectionObserver(handler, options)
+    observerRef.current = obs
+    sections.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) obs.observe(el)
+    })
+    return () => obs.disconnect()
+  }, [])
+
   const LinkItem = ({ href, children }) => (
     <a href={href} className={`group px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative z-10 ${
       dark 
-        ? 'hover:bg-gradient-to-r hover:from-secondary-500/20 hover:to-accent-500/20 text-white hover:text-secondary-300 hover:shadow-secondary-500/25' 
-        : 'hover:bg-gradient-to-r hover:from-secondary-100 hover:to-accent-100 text-gray-700 hover:text-secondary-600 hover:shadow-secondary-500/25'
+        ? `hover:bg-gradient-to-r hover:from-secondary-500/20 hover:to-accent-500/20 text-white hover:text-secondary-300 hover:shadow-secondary-500/25 ${active === href.replace('#','') ? 'text-secondary-300' : ''}` 
+        : `hover:bg-gradient-to-r hover:from-secondary-100 hover:to-accent-100 text-gray-700 hover:text-secondary-600 hover:shadow-secondary-500/25 ${active === href.replace('#','') ? 'text-secondary-600' : ''}`
     }`}>
       {children}
     </a>

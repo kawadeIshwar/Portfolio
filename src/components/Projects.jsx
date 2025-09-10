@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 const cards = [
   { 
@@ -31,6 +32,9 @@ const cards = [
 ]
 
 export default function Projects({ dark }) {
+  const [active, setActive] = useState(null)
+  const open = (project) => setActive(project)
+  const close = () => setActive(null)
   return (
     <section id="projects" className="py-24">
       <div className="flex items-baseline justify-between mb-12">
@@ -55,16 +59,16 @@ export default function Projects({ dark }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
-            className={`group relative overflow-hidden ${
+            className={`group relative overflow-hidden gpu ${
               dark ? 'card card-hover' : 'card-light card-hover-light'
             }`}
           >
             {/* Project Image */}
-            <div className="relative h-48 overflow-hidden rounded-t-3xl">
+            <div className="relative h-48 overflow-hidden rounded-t-3xl gpu">
               <img 
                 src={c.image} 
                 alt={c.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 gpu"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
@@ -128,7 +132,7 @@ export default function Projects({ dark }) {
                   href={c.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 bg-gradient-to-r from-secondary-500 to-accent-500 text-white text-sm font-medium py-2 px-4 rounded-xl hover:from-secondary-600 hover:to-accent-600 transition-all duration-200 text-center"
+                  className="flex-1 bg-gradient-to-r from-secondary-500 to-accent-500 text-white text-xs md:text-sm font-medium py-2 px-4 rounded-xl hover:from-secondary-600 hover:to-accent-600 transition-all duration-200 text-center"
                 >
                   Live Demo
                 </a>
@@ -147,6 +151,15 @@ export default function Projects({ dark }) {
                   </svg>
                   Code
                 </a>
+                <button
+                  type="button"
+                  onClick={() => open(c)}
+                  className={`text-sm font-medium py-2 px-4 rounded-xl transition-all duration-200 ${
+                    dark ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                  }`}
+                >
+                  Learn More
+                </button>
               </div>
             </div>
 
@@ -155,6 +168,42 @@ export default function Projects({ dark }) {
           </motion.div>
         ))}
       </div>
+
+      {/* Case Study Modal */}
+      {active && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+          onClick={close}
+        >
+          <motion.div
+            initial={{ scale: 0.95, y: 10, opacity: 0 }}
+            animate={{ scale: 1, y: 0, opacity: 1 }}
+            transition={{ type: 'spring', stiffness: 140, damping: 16 }}
+            className={`${dark ? 'card' : 'card-light'} max-w-2xl w-[92%] relative`}
+            onClick={(e)=>e.stopPropagation()}
+          >
+            <button onClick={close} className={`absolute top-3 right-3 text-sm ${dark ? 'text-white/70 hover:text-white' : 'text-gray-500 hover:text-gray-800'}`}>✕</button>
+            <div className="flex flex-col md:flex-row gap-6">
+              <img src={active.image} alt={active.title} className="md:w-1/2 w-full h-48 md:h-auto object-cover rounded-2xl"/>
+              <div className="flex-1 space-y-3">
+                <h3 className={`text-2xl font-semibold ${dark ? 'text-white' : 'text-gray-800'}`}>{active.title}</h3>
+                <p className={`${dark ? 'text-white/70' : 'text-gray-600'}`}>{active.desc}</p>
+                <div className="flex flex-wrap gap-2">
+                  {active.features.map((f, i)=>(
+                    <span key={i} className={`text-xs px-2 py-1 rounded-md ${dark ? 'bg-white/10 text-white/80' : 'bg-gray-100 text-gray-700'}`}>{f}</span>
+                  ))}
+                </div>
+                <div className="pt-2 flex gap-3">
+                  <a href={active.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary px-4 py-2 text-sm">Live</a>
+                  <a href={active.githubUrl} target="_blank" rel="noopener noreferrer" className={`text-sm px-4 py-2 rounded-xl border ${dark ? 'border-white/20 text-white/90' : 'border-gray-300 text-gray-800'}`}>Code</a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </section>
   )
 }
