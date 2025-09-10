@@ -32,7 +32,7 @@ export default function App() {
     <div className={`min-h-screen relative overflow-hidden ${
       dark 
         ? 'bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900' 
-        : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
+        : 'bg-gradient-to-br from-indigo-50 via-white to-purple-50'
     }`}>
       {/* Scroll progress bar */}
       <motion.div

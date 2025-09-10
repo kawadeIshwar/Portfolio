@@ -48,7 +48,7 @@ export default function Skills({ dark }) {
             
             {/* Progress Bar */}
             <div className={`w-full h-2 rounded-full ${
-              dark ? 'bg-white/20' : 'bg-gray-200'
+              dark ? 'bg-white/20' : 'bg-gradient-to-r from-indigo-100 to-purple-100 shadow-inner'
             }`}>
               <div
                 className="h-full bg-gradient-to-r from-secondary-500 to-accent-500 rounded-full"

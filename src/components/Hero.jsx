@@ -80,7 +80,7 @@ export default function Hero({ dark }) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
                   className={`skill-badge text-base px-6 py-3 ${
-                    dark ? 'text-white/90' : 'text-gray-700'
+                    dark ? 'text-white/90' : 'text-indigo-700 font-medium'
                   }`}
                 >
                   {tech}

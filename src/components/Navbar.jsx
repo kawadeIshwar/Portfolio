@@ -44,7 +44,7 @@ export default function Navbar({ dark, setDark }) {
     <a href={href} className={`group px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative z-10 ${
       dark 
         ? `hover:bg-gradient-to-r hover:from-secondary-500/20 hover:to-accent-500/20 text-white hover:text-secondary-300 hover:shadow-secondary-500/25 ${active === href.replace('#','') ? 'text-secondary-300' : ''}` 
-        : `hover:bg-gradient-to-r hover:from-secondary-100 hover:to-accent-100 text-gray-700 hover:text-secondary-600 hover:shadow-secondary-500/25 ${active === href.replace('#','') ? 'text-secondary-600' : ''}`
+        : `hover:bg-gradient-to-r hover:from-indigo-100 hover:to-purple-100 text-indigo-700 hover:text-indigo-600 hover:shadow-indigo-500/25 ${active === href.replace('#','') ? 'text-indigo-600' : ''}`
     }`}>
       {children}
     </a>
@@ -58,7 +58,7 @@ export default function Navbar({ dark, setDark }) {
     } ${
       dark 
         ? `glass-nav border-white/20 ${scrolled ? 'bg-dark-900/80' : 'bg-dark-900/20'}` 
-        : `glass-nav-light border-gray-200/60 ${scrolled ? 'bg-white/90' : 'bg-white/60'}`
+        : `glass-nav-light border-indigo-200/60 ${scrolled ? 'bg-gradient-to-r from-white/95 to-indigo-50/90' : 'bg-gradient-to-r from-white/80 to-indigo-50/70'}`
     }`}>
       <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ${
         scrolled ? 'h-16' : 'h-20'
@@ -68,7 +68,7 @@ export default function Navbar({ dark, setDark }) {
         } ${
           dark 
             ? 'text-white hover:text-secondary-300' 
-            : 'text-gray-800 hover:text-secondary-600'
+            : 'text-indigo-800 hover:text-indigo-600'
         }`}>
           Ishwar<span className="gradient-text-static">.dev</span>
         </a>
@@ -85,10 +85,10 @@ export default function Navbar({ dark, setDark }) {
             } ${
               dark 
                 ? 'border-white/20 bg-white/10 hover:bg-gradient-to-r hover:from-yellow-500/20 hover:to-orange-500/20 hover:shadow-yellow-500/25' 
-                : 'border-gray-200/60 bg-white/80 hover:bg-gradient-to-r hover:from-yellow-100 hover:to-orange-100 hover:shadow-yellow-500/25'
+                : 'border-indigo-200/60 bg-gradient-to-r from-white/90 to-indigo-50/80 hover:bg-gradient-to-r hover:from-yellow-100 hover:to-orange-100 hover:shadow-yellow-500/25'
             }`}
           >
-            {dark ? <Sun size={scrolled ? 16 : 18} className="text-white"/> : <Moon size={scrolled ? 16 : 18} className="text-gray-700"/>}
+            {dark ? <Sun size={scrolled ? 16 : 18} className="text-white"/> : <Moon size={scrolled ? 16 : 18} className="text-indigo-700"/>}
           </button>
         </nav>
 
@@ -98,11 +98,11 @@ export default function Navbar({ dark, setDark }) {
           } ${
             dark 
               ? 'border-white/20 bg-white/10 hover:bg-gradient-to-r hover:from-gray-500/20 hover:to-slate-500/20 hover:shadow-gray-500/25' 
-              : 'border-gray-200/60 bg-white/80 hover:bg-gradient-to-r hover:from-gray-100 hover:to-slate-100 hover:shadow-gray-500/25'
+              : 'border-indigo-200/60 bg-gradient-to-r from-white/90 to-indigo-50/80 hover:bg-gradient-to-r hover:from-indigo-100 hover:to-purple-100 hover:shadow-indigo-500/25'
           }`}
           onClick={() => setOpen(v => !v)}
         >
-          <Menu size={scrolled ? 18 : 20} className={dark ? 'text-white' : 'text-gray-700'}/>
+          <Menu size={scrolled ? 18 : 20} className={dark ? 'text-white' : 'text-indigo-700'}/>
         </button>
       </div>
 
@@ -114,17 +114,17 @@ export default function Navbar({ dark, setDark }) {
             <a href="#projects" onClick={()=>setOpen(false)} className={`group py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative z-10 ${
               dark 
                 ? 'hover:bg-gradient-to-r hover:from-secondary-500/20 hover:to-accent-500/20 text-white hover:text-secondary-300 hover:shadow-secondary-500/25' 
-                : 'hover:bg-gradient-to-r hover:from-secondary-100 hover:to-accent-100 text-gray-700 hover:text-secondary-600 hover:shadow-secondary-500/25'
+                : 'hover:bg-gradient-to-r hover:from-indigo-100 hover:to-purple-100 text-indigo-700 hover:text-indigo-600 hover:shadow-indigo-500/25'
             }`}>Projects</a>
             <a href="#skills" onClick={()=>setOpen(false)} className={`group py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative z-10 ${
               dark 
                 ? 'hover:bg-gradient-to-r hover:from-secondary-500/20 hover:to-accent-500/20 text-white hover:text-secondary-300 hover:shadow-secondary-500/25' 
-                : 'hover:bg-gradient-to-r hover:from-secondary-100 hover:to-accent-100 text-gray-700 hover:text-secondary-600 hover:shadow-secondary-500/25'
+                : 'hover:bg-gradient-to-r hover:from-indigo-100 hover:to-purple-100 text-indigo-700 hover:text-indigo-600 hover:shadow-indigo-500/25'
             }`}>Skills</a>
             <a href="#contact" onClick={()=>setOpen(false)} className={`group py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative z-10 ${
               dark 
                 ? 'hover:bg-gradient-to-r hover:from-secondary-500/20 hover:to-accent-500/20 text-white hover:text-secondary-300 hover:shadow-secondary-500/25' 
-                : 'hover:bg-gradient-to-r hover:from-secondary-100 hover:to-accent-100 text-gray-700 hover:text-secondary-600 hover:shadow-secondary-500/25'
+                : 'hover:bg-gradient-to-r hover:from-indigo-100 hover:to-purple-100 text-indigo-700 hover:text-indigo-600 hover:shadow-indigo-500/25'
             }`}>Contact</a>
             <button
               aria-label="Toggle theme"
@@ -132,7 +132,7 @@ export default function Navbar({ dark, setDark }) {
               className={`group mt-2 p-3 rounded-xl border backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative z-10 ${
                 dark 
                   ? 'border-white/20 bg-white/10 hover:bg-gradient-to-r hover:from-yellow-500/20 hover:to-orange-500/20 hover:shadow-yellow-500/25 text-white' 
-                  : 'border-gray-200/60 bg-white/80 hover:bg-gradient-to-r hover:from-yellow-100 hover:to-orange-100 hover:shadow-yellow-500/25 text-gray-700'
+                  : 'border-indigo-200/60 bg-gradient-to-r from-white/90 to-indigo-50/80 hover:bg-gradient-to-r hover:from-yellow-100 hover:to-orange-100 hover:shadow-yellow-500/25 text-indigo-700'
               }`}
             >
               {dark ? 'Light Mode' : 'Dark Mode'}

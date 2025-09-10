@@ -87,7 +87,7 @@ export default function Projects({ dark }) {
               <div className={`text-xs inline-flex rounded-full border px-3 py-1 backdrop-blur-xl ${
                 dark 
                   ? 'border-white/20 bg-white/10 text-white/90' 
-                  : 'border-gray-200/60 bg-white/80 text-gray-700'
+                  : 'border-indigo-200/60 bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 font-medium shadow-sm'
               }`}>
                 {c.chip}
               </div>
@@ -118,7 +118,7 @@ export default function Projects({ dark }) {
                     <span key={index} className={`text-xs px-2 py-1 rounded-md ${
                       dark 
                         ? 'bg-white/10 text-white/80' 
-                        : 'bg-gray-100 text-gray-600'
+                        : 'bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 font-medium shadow-sm'
                     }`}>
                       {feature}
                     </span>
@@ -143,7 +143,7 @@ export default function Projects({ dark }) {
                   className={`flex-1 border text-sm font-medium py-2 px-4 rounded-xl transition-all duration-200 text-center ${
                     dark 
                       ? 'border-white/20 bg-white/10 text-white hover:bg-white/20' 
-                      : 'border-gray-200/60 bg-white/80 text-gray-700 hover:bg-gray-100'
+                      : 'border-indigo-200/60 bg-gradient-to-r from-white/90 to-indigo-50/80 text-indigo-700 hover:from-indigo-50 hover:to-purple-50 hover:shadow-lg hover:shadow-indigo-100/50'
                   }`}
                 >
                   <svg className="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 24 24">
@@ -155,7 +155,7 @@ export default function Projects({ dark }) {
                   type="button"
                   onClick={() => open(c)}
                   className={`text-sm font-medium py-2 px-4 rounded-xl transition-all duration-200 ${
-                    dark ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                    dark ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 hover:from-indigo-200 hover:to-purple-200 hover:shadow-lg hover:shadow-indigo-100/50'
                   }`}
                 >
                   Learn More
@@ -192,12 +192,12 @@ export default function Projects({ dark }) {
                 <p className={`${dark ? 'text-white/70' : 'text-gray-600'}`}>{active.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {active.features.map((f, i)=>(
-                    <span key={i} className={`text-xs px-2 py-1 rounded-md ${dark ? 'bg-white/10 text-white/80' : 'bg-gray-100 text-gray-700'}`}>{f}</span>
+                    <span key={i} className={`text-xs px-2 py-1 rounded-md ${dark ? 'bg-white/10 text-white/80' : 'bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 font-medium shadow-sm'}`}>{f}</span>
                   ))}
                 </div>
                 <div className="pt-2 flex gap-3">
                   <a href={active.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary px-4 py-2 text-sm">Live</a>
-                  <a href={active.githubUrl} target="_blank" rel="noopener noreferrer" className={`text-sm px-4 py-2 rounded-xl border ${dark ? 'border-white/20 text-white/90' : 'border-gray-300 text-gray-800'}`}>Code</a>
+                  <a href={active.githubUrl} target="_blank" rel="noopener noreferrer" className={`text-sm px-4 py-2 rounded-xl border ${dark ? 'border-white/20 text-white/90' : 'border-indigo-200/60 bg-gradient-to-r from-white/90 to-indigo-50/80 text-indigo-700 hover:from-indigo-50 hover:to-purple-50'}`}>Code</a>
                 </div>
               </div>
             </div>
