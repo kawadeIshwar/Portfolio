@@ -37,7 +37,7 @@ export default function Footer({ dark }) {
           <div className="flex gap-4">
             {/* Instagram */}
             <a 
-              href="https://www.instagram.com/web_morph_?igsh=aWtnOHJsN2F6cTZn&utm_source=qr" 
+              href="https://www.instagram.com/ishwar.devx?igsh=aWtnOHJsN2F6cTZn&utm_source=qr" 
               target="_blank" 
               rel="noopener noreferrer"
               className={`group w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-pink-500/25 cursor-pointer relative z-10 ${
