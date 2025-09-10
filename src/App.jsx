@@ -13,11 +13,16 @@ export default function App() {
   // Scroll progress bar
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, mass: 0.3 })
+  
+  // Set dark mode immediately on page load to prevent flash
   useEffect(() => {
     const stored = localStorage.getItem('theme')
     const initial = stored ? stored === 'dark' : true // Default to dark mode
     setDark(initial)
+    // Apply dark class immediately
+    document.documentElement.classList.toggle('dark', initial)
   }, [])
+  
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)
     localStorage.setItem('theme', dark ? 'dark' : 'light')
