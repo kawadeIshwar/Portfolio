@@ -18,7 +18,7 @@ export default function Hero({ dark }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className={`text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[1.1] tracking-tight ${
+              className={`text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-extrabold leading-[1.1] tracking-tight ${
                 dark ? 'text-white' : 'text-gray-800'
               }`}
             >

@@ -16,12 +16,31 @@ const skills = [
 ]
 
 export default function Skills({ dark }) {
+  // Smooth container and item animations
+  const container = {
+    hidden: { opacity: 0, y: 16 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { when: 'beforeChildren', staggerChildren: 0.07, ease: 'easeOut', duration: 0.4 }
+    }
+  }
+
+  const itemForIndex = (index) => {
+    const col = index % 3
+    const x = col === 0 ? -20 : col === 2 ? 20 : 0
+    return {
+      hidden: { opacity: 0, x, scale: 0.98 },
+      show: { opacity: 1, x: 0, scale: 1, transition: { ease: 'easeOut', duration: 0.45 } }
+    }
+  }
+
   return (
     <section id="skills" className="py-24">
       <motion.h2 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.3 }}
         className={`text-3xl sm:text-4xl font-bold tracking-tight mb-12 ${
           dark ? 'text-white' : 'text-gray-800'
         }`}
@@ -30,19 +49,16 @@ export default function Skills({ dark }) {
       </motion.h2>
       
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         {skills.map((skill, index) => (
           <motion.div
             key={skill.name}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
+            variants={itemForIndex(index)}
             className={`group relative overflow-hidden p-6 ${
               dark ? 'skill-badge' : 'skill-badge-light'
             }`}
@@ -67,8 +83,8 @@ export default function Skills({ dark }) {
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: `${skill.percentage}%` }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, delay: index * 0.1 + 0.5 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
                 className="h-full bg-gradient-to-r from-secondary-500 to-accent-500 rounded-full relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
