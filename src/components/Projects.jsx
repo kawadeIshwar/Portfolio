@@ -11,15 +11,15 @@ const cards = [
     chip: 'MERN',
     features: ['File Upload', 'Notes Explore', 'Cloud storage', 'User Authentication', 'Responsive design']
   },
-  { 
-    title: 'Rank-Rush', 
-    desc: 'A real-time leaderboard built with MERN, where users earn random points, climb ranks, and track their claim history. ', 
-    image: 'https://images.unsplash.com/photo-1533237264985-ee62f6d342bb?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    liveUrl: 'https://rank-rush1.netlify.app/', 
-    githubUrl: 'https://github.com/kawadeIshwar/Rank-Rush.git',
-    chip: 'MERN',
-    features: ['Leaderboard', 'Claim Points', 'Ranking System', 'Points Tracking', 'Responsive Design']
-  },
+  {
+  title: 'Jijau Pathology Lab',
+  desc:' A clean and responsive website for Jijau Pathology Lab with test info and easy patient contact.',
+  image: 'https://plus.unsplash.com/premium_photo-1667516516089-c2f5e5df0db9?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  liveUrl: 'https://jijaupathologylab.com/',
+  githubUrl: 'https://github.com/kawadeIshwar/JIJAU-PATHOLOGY-LAB.git',
+  chip: 'MERN',
+  features: ['Responsive Design', 'Test Information Section', 'Contact Form', 'Location Map', 'Clean UI']
+},
   { 
     title: 'TuneWave - Spotify Clone', 
     desc: 'A front-end Spotify clone built using HTML & CSS, replicating the sleek UI and design of the original app. ',
